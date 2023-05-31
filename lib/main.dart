@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // 깃헙 참고 https://github.com/NearHuscarl/flutter_login
 const users = {
@@ -80,18 +81,21 @@ class MyHomePage extends StatelessWidget {
           // 하단 알림 오류 타이틀
           confirmPasswordError: "비밀번호를 확인해주세요.?",
           // 회원가입 비밀번호 확인 하단 에러메세지
+
+          providersTitleFirst: "Login With",
+          // 소셜로그인 타이틀
+          providersTitleSecond: "Social Login",
+
           //-------------------
           confirmSignupIntro: "11111",
           confirmSignupSuccess: "22222",
           flushbarTitleSuccess: "33333",
-          providersTitleSecond: "44444",
           recoverPasswordSuccess: "55555",
           resendCodeButton: "66666",
           resendCodeSuccess: "77777",
           confirmSignupButton: "버튼1",
           recoveryCodeValidationError: "에러에러",
           recoveryCodeHint: "여기서",
-          providersTitleFirst: "프로바이더타이틀첫번째",
           confirmationCodeHint: "코드힌트?",
           additionalSignUpSubmitButton: "회원가입서브밋버튼",
           confirmationCodeValidationError: "에러",
@@ -128,6 +132,44 @@ class MyHomePage extends StatelessWidget {
             return "이메일이 입력되지 않았습니다.";
           }
         },
+        loginProviders: <LoginProvider>[
+          LoginProvider(
+              icon: FontAwesomeIcons.google,
+              label: "Google",
+              callback: () async {
+                debugPrint('start google sign in');
+                await Future.delayed(loginTime);
+                debugPrint('stop google sign in');
+                return null;
+              }),
+          LoginProvider(
+              icon: FontAwesomeIcons.facebookF,
+              label: "FaceBook",
+              callback: () async {
+                debugPrint('start facebook sign in');
+                await Future.delayed(loginTime);
+                debugPrint('stop facebook sign in');
+                return null;
+              }),
+          LoginProvider(
+              icon: FontAwesomeIcons.github,
+              label: "Github",
+              callback: () async {
+                debugPrint('start github sign in');
+                await Future.delayed(loginTime);
+                debugPrint('stop github sign in');
+                return null;
+              }),
+          LoginProvider(
+              icon: FontAwesomeIcons.linkedin,
+              label: "LinkdeIn",
+              callback: () async {
+                debugPrint('start linkedin sign in');
+                await Future.delayed(loginTime);
+                debugPrint('stop linkedin sign in');
+                return null;
+              }),
+        ],
         footer: "footer",
         logoTag: "tag",
         title: "Login",
